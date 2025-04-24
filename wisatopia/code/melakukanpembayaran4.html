@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pembayaran Gagal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+        }
+
+        .background {
+            background-image: url("background.jpeg");
+            /* Ganti dengan path gambar Anda */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            position: relative;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .failed-container {
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            width: 80%;
+            max-width: 500px;
+        }
+
+        .failed-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+        }
+
+        .failed-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .failed-message {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .failed-message strong.package-name {
+            color: yellow;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .custom-button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            color: white;
+            flex-grow: 1;
+            text-align: center;
+            min-width: 150px;
+            /* Atur lebar minimum yang sesuai */
+            width: 50%;
+            /* Atur lebar agar berbagi ruang yang sama */
+            max-width: 200px;
+            /* Atur lebar maksimum jika perlu */
+        }
+
+        .try-again-button {
+            background-color: #007bff;
+        }
+
+        .try-again-button:hover {
+            background-color: #0056b3;
+        }
+
+        .back-home-button {
+            background-color: #007bff;
+        }
+
+        .back-home-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background">
+        <div class="failed-container">
+            <img src="Vector1.png" alt="Pembayaran Gagal" class="failed-icon">
+            <h2 class="failed-title">Pembayaran Gagal</h2>
+            <p class="failed-message">
+                Mohon maaf, pembayaran untuk <strong class="package-name">Paket Wisata Tanah Lot</strong> tidak dapat
+                diproses.<br>
+                Kode Booking: <strong>WT-897562</strong><br>
+                Silakan periksa kembali metode pembayaran Anda atau coba beberapa saat lagi.
+            </p>
+            <div class="button-group">
+                <a href="melakukanpembayaran.html" class="custom-button try-again-button">Coba Lagi</a>
+                <a href="#" class="custom-button back-home-button">Kembali ke Beranda</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

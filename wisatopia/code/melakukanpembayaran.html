@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pembayaran Wisata</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        .background {
+            background-image: url("background.jpeg");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            position: relative;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 50px;
+            color: white;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .logo-wrapper {
+            width: 50px;
+            /* Sesuaikan ukuran lebar logo */
+            height: 50px;
+            /* Sesuaikan ukuran tinggi logo */
+            margin-right: 10px;
+            /* Jarak antara logo dan teks */
+            /* Jika logo.png Anda sudah bulat, Anda bisa menghapus border-radius dan overflow */
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .logo-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Atau 'contain' sesuai kebutuhan */
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .form-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+            width: 350px;
+        }
+
+        .form-container h2 {
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        .form-container h3 {
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .form-container label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .form-container input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            margin-bottom: 20px;
+            -moz-appearance: textfield;
+            /* Firefox */
+        }
+
+        .form-container input[type="number"]::-webkit-outer-spin-button,
+        .form-container input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        button {
+            padding: 12px 25px;
+            background-color: #2196f3;
+            border: none;
+            color: white;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background">
+        <nav class="navbar">
+            <div class="logo">
+                <div class="logo-wrapper">
+                    <img src="logo.png" alt="Logo Wisatopia" class="logo-image">
+                </div>
+                Wisatopia
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Beranda</a></li>
+                <li><a href="#">Destinasi</a></li>
+                <li><a href="#">Promosi</a></li>
+                <li><a href="#">Tentang Kami</a></li>
+                <li><a href="#">Kontak</a></li>
+                <li><a href="#">🔔</a></li>
+            </ul>
+        </nav>
+
+        <div class="form-container">
+            <h2>Pembayaran</h2>
+            <h3>Paket Wisata Tanah Lot</h3>
+
+            <form id="pembayaranForm">
+                <label for="dewasa">Jumlah Dewasa (Rp50.000/orang)</label>
+                <input type="number" id="dewasa" placeholder="Masukkan jumlah" min="0" required />
+
+                <label for="anak">Jumlah Anak-anak (Rp35.000/orang)</label>
+                <input type="number" id="anak" placeholder="Masukkan jumlah" min="0" required />
+
+                <button type="submit">Selanjutnya</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("pembayaranForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const dewasa = document.getElementById("dewasa").value;
+            const anak = document.getElementById("anak").value;
+            window.location.href = `melakukanpembayaran1.html?dewasa=${dewasa}&anak=${anak}`;
+        });
+    </script>
+</body>
+
+</html>

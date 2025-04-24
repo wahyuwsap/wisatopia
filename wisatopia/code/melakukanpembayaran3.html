@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pembayaran Berhasil</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body,
+        html {
+            height: 100%;
+        }
+
+        .background {
+            background-image: url("background.jpeg");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            position: relative;
+            color: white;
+        }
+
+        .confirmation-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            border-radius: 10px;
+            width: 400px;
+            text-align: center;
+        }
+
+        .confirmation-title {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .confirmation-title h2 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ffffff;
+            margin: 0;
+            padding-top: 40px;
+        }
+
+        .confirmation-title img {
+            width: 60px;
+            height: auto;
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .confirmation-container p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #eeeeee;
+        }
+
+        .confirmation-container p strong.package-name {
+            color: yellow;
+            font-weight: bold;
+        }
+
+        .confirmation-container p strong.booking-code {
+            color: white;
+            font-weight: bold;
+        }
+
+        .button-row {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .custom-button {
+            padding: 8px 15px;
+            /* Padding lebih kecil */
+            border: none;
+            color: white;
+            border-radius: 8px;
+            font-size: 14px;
+            /* Ukuran font lebih kecil */
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+            white-space: nowrap;
+            /* Mencegah teks turun ke baris baru */
+        }
+
+        .back-button {
+            background-color: #007bff;
+        }
+
+        .back-button:hover {
+            background-color: #007bff;
+        }
+
+        .detail-button {
+            background-color: #007bff;
+            /* Warna hijau tombol detail */
+        }
+
+        .detail-button:hover {
+            background-color: #007bff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background">
+        <div class="confirmation-container">
+            <div class="confirmation-title">
+                <img src="vector.png" alt="Tanda Centang">
+                <h2>Pembayaran Berhasil!</h2>
+            </div>
+            <p>Terima kasih, Pesanan Anda untuk <strong class="package-name">Paket Wisata Tanah Lot</strong> telah
+                berhasil dikonfirmasi.</p>
+            <p>Kode Booking: <strong class="booking-code">WT-897562</strong></p>
+            <p>Anda akan menerima email konfirmasi dalam beberapa waktu.</p>
+            <div class="button-row">
+                <a href="#" class="custom-button back-button">Kembali ke Beranda</a>
+                <button class="custom-button detail-button">Lihat Detail Pesanan</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

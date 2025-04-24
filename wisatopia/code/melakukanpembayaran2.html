@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Konfirmasi Pembayaran</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body,
+        html {
+            height: 100%;
+        }
+
+        .background {
+            background-image: url("background.jpeg");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            position: relative;
+            color: white;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 50px;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .logo-image {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .confirmation-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            border-radius: 10px;
+            width: 400px;
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        .confirmation-container h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .confirmation-container h3 {
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+
+        .payment-info {
+            background-color: white;
+            color: black;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .payment-info div {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .payment-info .total {
+            padding-top: 10px;
+            border-top: 1px solid #ccc;
+            font-weight: bold;
+        }
+
+        .bank-info-container {
+            background-color: white;
+            color: black;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            text-align: left;
+            display: inline-block;
+            width: auto;
+        }
+
+        .bank-info-container div {
+            margin-bottom: 0;
+        }
+
+        .bank-info-container div:first-child {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .bank-account-input {
+            background-color: white;
+            color: black;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .bank-account-input label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .bank-account-input input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            color: black;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .cancel-button {
+            padding: 10px 15px;
+            border: none;
+            color: white;
+            border-radius: 20px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            background-color: #007bff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+            flex-grow: 0;
+            width: auto;
+        }
+
+        .cancel-button:hover {
+            background-color: #0056b3;
+        }
+
+        .finish-button {
+            padding: 10px 20px;
+            border: none;
+            color: white;
+            border-radius: 20px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            background-color: #007bff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+            flex-grow: 1;
+        }
+
+        .finish-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="logo.png" alt="Logo Wisatopia" class="logo-image">
+                Wisatopia
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Beranda</a></li>
+                <li><a href="#">Destinasi</a></li>
+                <li><a href="#">Promosi</a></li>
+                <li><a href="#">Tentang Kami</a></li>
+                <li><a href="#">Kontak</a></li>
+                <li><a href="#">🔔</a></li>
+            </ul>
+        </nav>
+
+        <div class="confirmation-container">
+            <h2>Konfirmasi Pembayaran</h2>
+            <h3>Paket Wisata Tanah Lot</h3>
+
+            <div class="payment-info">
+                <div><span>Total Pembayaran:</span><span id="konfirmasiTotal">Rp0</span></div>
+            </div>
+
+            <div class="bank-info-container">
+                <div><span id="konfirmasiBank">-</span></div>
+            </div>
+
+            <div class="bank-account-input">
+                <label for="nomorRekening">No. Rek/Virtual Account Anda:</label>
+                <input type="text" id="nomorRekening" placeholder="Masukkan nomor rekening Anda">
+            </div>
+
+            <div class="button-container">
+                <button class="custom-button cancel-button" id="batalkanPesanan">Batalkan Pesanan</button>
+                <button class="custom-button finish-button">Selesai</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fungsi untuk mendapatkan parameter dari URL
+        function getURLParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                total: params.get('total'),
+                bank: params.get('bank')
+            };
+        }
+
+        const urlParams = getURLParams();
+        const totalPembayaran = urlParams.total;
+        const selectedBank = urlParams.bank;
+
+        // Menampilkan informasi pembayaran
+        document.getElementById('konfirmasiTotal').innerText = totalPembayaran ? totalPembayaran : 'Rp-';
+        document.getElementById('konfirmasiBank').innerText = selectedBank ? getNamaBank(selectedBank) : '-';
+
+        // Fungsi untuk mendapatkan nama bank berdasarkan value dari dropdown sebelumnya
+        function getNamaBank(value) {
+            switch (value) {
+                case 'bni':
+                    return 'Bank BNI';
+                case 'bri':
+                    return 'Bank BRI';
+                case 'mandiri':
+                    return 'Bank Mandiri';
+                case 'bca':
+                    return 'Bank BCA';
+                case 'cimb_niaga':
+                    return 'Bank CIMB Niaga';
+                case 'transfer_bank':
+                    return 'Transfer Bank';
+                case 'kartu_kredit':
+                    return 'Kartu Kredit';
+                case 'e_wallet':
+                    return 'E-Wallet';
+                default:
+                    return '-';
+            }
+        }
+
+        // Event listener untuk tombol "Selesai"
+        const selesaiButton = document.querySelector('.finish-button');
+        selesaiButton.addEventListener('click', function () {
+            // Redirect ke halaman melakukanpembayaran3.html
+            window.location.href = 'melakukanpembayaran3.html';
+        });
+
+        // Event listener untuk tombol "Batalkan Pesanan"
+        const batalkanPesananButton = document.getElementById('batalkanPesanan');
+        batalkanPesananButton.addEventListener('click', function () {
+            // Redirect ke halaman melakukanpembayaran4.html
+            window.location.href = 'melakukanpembayaran4.html';
+            // Anda bisa menambahkan logika pembatalan pesanan di sini jika diperlukan
+            // Misalnya, mengirim permintaan ke server untuk membatalkan pesanan.
+        });
+    </script>
+</body>
+
+</html>

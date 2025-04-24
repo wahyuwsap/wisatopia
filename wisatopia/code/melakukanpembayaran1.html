@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pembayaran Wisata</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body,
+        html {
+            height: 100%;
+        }
+
+        .background {
+            background: url("background.jpeg") center/cover no-repeat;
+            height: 100vh;
+            color: white;
+            position: relative;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .logo-image {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .form-container {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 15px;
+            width: 400px;
+            color: white;
+            position: absolute;
+            top: 50%;
+            /* Menggeser posisi atas sedikit ke atas */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* Tetap menjaga posisi tengah horizontal dan vertikal relatif terhadap top yang baru */
+        }
+
+        .form-container h2,
+        .form-container h3 {
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .form-group input[type="text"],
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            color: black;
+        }
+
+        .payment-details {
+            background: white;
+            color: black;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .payment-details h4 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .payment-details div {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .payment-details .total {
+            padding-top: 10px;
+            border-top: 1px solid #ccc;
+            font-weight: bold;
+        }
+
+        .btn-container {
+            display: flex;
+        }
+
+        .btn {
+            padding: 12px 15px;
+            /* Lebih sedikit padding horizontal */
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            flex: none;
+            /* Agar lebar tombol menyesuaikan konten */
+            border: none;
+            background-color: #2196f3;
+            color: white;
+            text-align: center;
+            min-width: auto;
+            /* Menghapus lebar minimum agar menyesuaikan konten */
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            /* Agar tombol berada di tengah kontainer */
+        }
+
+        .jumlah-pesanan-frame {
+            background: white;
+            color: black;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .jumlah-pesanan-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .jumlah-pesanan-item label {
+            margin-bottom: 0;
+            width: 40%;
+            text-align: left;
+        }
+
+        .jumlah-pesanan-item input[type="text"] {
+            width: 60%;
+            color: black;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="logo.png" alt="Logo Wisatopia" class="logo-image">
+                Wisatopia
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Beranda</a></li>
+                <li><a href="#">Destinasi</a></li>
+                <li><a href="#">Promosi</a></li>
+                <li><a href="#">Tentang Kami</a></li>
+                <li><a href="#">Kontak</a></li>
+                <li><a href="#">🔔</a></li>
+            </ul>
+        </nav>
+
+        <div class="form-container">
+            <h2>Pembayaran</h2>
+            <h3>Paket Wisata Tanah Lot</h3>
+
+            <div class="form-group">
+                <label>Jumlah Pesanan</label>
+                <div class="jumlah-pesanan-frame">
+                    <div class="jumlah-pesanan-item">
+                        <label>Jumlah Dewasa:</label>
+                        <input type="text" id="jumlahDewasa" value="" readonly>
+                    </div>
+                    <div class="jumlah-pesanan-item">
+                        <label>Jumlah Anak-anak:</label>
+                        <input type="text" id="jumlahAnak" value="" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Metode Pembayaran</label>
+                <select id="metodePembayaran">
+                    <option value="transfer_bank">Transfer Bank</option>
+                    <option value="bni">BNI</option>
+                    <option value="bri">BRI</option>
+                    <option value="mandiri">Mandiri</option>
+                    <option value="bca">BCA</option>
+                    <option value="cimb_niaga">CIMB Niaga</option>
+                    <option value="kartu_kredit">Kartu Kredit</option>
+                    <option value="e_wallet">E-Wallet</option>
+                </select>
+            </div>
+
+            <div class="payment-details">
+                <h4>Rincian Pembayaran</h4>
+                <div id="rincianDewasa"><span>Subtotal Dewasa</span><span>Rp0</span></div>
+                <div id="rincianAnak"><span>Subtotal Anak-anak</span><span>Rp0</span></div>
+                <div id="rincianLayanan"><span>Biaya Layanan</span><span>Rp0</span></div>
+                <div class="total"><span>Total Pembayaran</span><span id="totalPembayaran">Rp0</span></div>
+            </div>
+
+            <div class="btn-container">
+                <button class="btn">Bayar Sekarang</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function getURLParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                dewasa: params.get('dewasa'),
+                anak: params.get('anak')
+            };
+        }
+
+        const params = getURLParams();
+        const dewasa = parseInt(params.dewasa);
+        const anak = parseInt(params.anak);
+
+        const dewasaPrice = 50000;
+        const anakPrice = 35000;
+        const biayaLayanan = 2000;
+
+        const subtotalDewasa = dewasa * dewasaPrice;
+        const subtotalAnak = anak * anakPrice;
+        const totalPembayaran = subtotalDewasa + subtotalAnak + biayaLayanan;
+
+        const formatRupiah = (number) => `Rp${number.toLocaleString()}`;
+
+        document.getElementById('jumlahDewasa').value = dewasa + " Orang";
+        document.getElementById('jumlahAnak').value = anak + " Orang";
+        document.getElementById('rincianDewasa').innerHTML = `<span>Subtotal Dewasa</span><span>${formatRupiah(subtotalDewasa)}</span>`;
+        document.getElementById('rincianAnak').innerHTML = `<span>Subtotal Anak-anak</span><span>${formatRupiah(subtotalAnak)}</span>`;
+        document.getElementById('rincianLayanan').innerHTML = `<span>Biaya Layanan</span><span>${formatRupiah(biayaLayanan)}</span>`;
+        document.getElementById('totalPembayaran').innerText = formatRupiah(totalPembayaran);
+
+        document.querySelector('.btn').addEventListener('click', function () {
+            const selectedBank = document.getElementById('metodePembayaran').value;
+            window.location.href = `melakukanpembayaran2.html?total=${encodeURIComponent(document.getElementById('totalPembayaran').innerText)}&bank=${encodeURIComponent(selectedBank)}`;
+        });
+    </script>
+</body>
+
+</html>
