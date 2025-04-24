@@ -1,0 +1,295 @@
+/* HEADER DETAIL DENGAN BACKGROUND GAMBAR */
+.header-detail {
+    color: white;
+    position: absolute; 
+    top: 15vh;           
+    left: 0;
+    width: 100%;
+    z-index: 1000;     
+  }
+  .hero2 {
+    position: relative;
+    height: 100vh;
+    background: url('../../asset/background.jpeg') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+  }
+  .hero2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    }
+    .custom-navbar .container {
+        padding-left: 70px !important;
+        padding-right: 140px !important;
+        max-width: 100%; /* agar tidak dibatasi */
+    }
+    .custom-navbar .nav-link {
+        position: relative;
+        color: white !important;
+        padding-top: 10px;
+        padding-bottom: 4px;
+        transition: all 0.3s ease;
+        margin-left: -5px;
+        margin-right: -5px;
+      }
+      
+      .custom-navbar .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        width: 0;
+        background-color: #ffffff;
+        transition: width 0.3s ease;
+      }
+      
+      .custom-navbar .nav-link:hover::after,
+      .custom-navbar .nav-link.active::after {
+        width: 100%;
+      }
+      
+  
+  .header-detail .overlay {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7), transparent);
+    background-size: cover;
+    background-position: center;
+    padding: 8px 40px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 12px;
+    max-width: fit-content;
+  }
+  
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header-content {
+    margin-top: auto;
+  }
+  
+  .header-content h1 {
+    font-size: 30px;
+    margin-bottom: 5px;
+  }
+  
+  .header-content p {
+    font-size: 16px;
+    color: antiquewhite;
+    margin-bottom: 10px;
+  }
+  
+  .rating-info {
+    font-size: 18px;
+    opacity: 0.8;
+    margin-bottom: 20px;
+  }
+  
+  /* DETAIL DESTINASI */
+  .detail-container {
+    margin-top: 200px;
+    background-color: white;
+    padding: 40px 40px;
+    z-index: 2;
+  }
+  
+  .destinasi-info {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 20px;
+    align-items: center;
+    font-size: 20px;
+  }
+  
+  .destinasi-info img {
+    width: 400px;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+  
+  .destinasi-info p {
+    line-height: 1.8;
+  }
+  
+  .aksi {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .aksi button {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid #ccc;
+    padding: 8px 16px;
+    border-radius: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  /* OPSI PAKET */
+  .paket-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    padding: 20px 30px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
+  
+  .paket-deskripsi {
+    max-width: 70%;
+  }
+  .paket-deskripsi p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+    font-size: 18px;
+  }
+  .pesan-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .paket-harga {
+    text-align: right;
+  }
+  
+  .harga {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .btn-pilih {
+    background-color: #3da9fc;
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .btn-pilih:hover {
+    background-color: #2491e4;
+  }
+  
+  
+  /* TIPS */
+  .tips ul {
+    padding-left: 20px;
+    margin-bottom: 40px;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    padding: 20px 30px;
+    margin-top: 10px;
+    border-radius: 12px;
+  }
+  
+  .tips li {
+    margin-bottom: 10px;
+  }
+  
+  /* LOKASI */
+
+  .lokasi-card{
+    padding-left: 20px;
+    margin-bottom: 40px;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    padding: 20px 30px;
+    margin-top: 10px;
+    border-radius: 12px;
+  }
+  .lokasi iframe {
+    width: 100%;
+    height: 300px;
+    border: none;
+    border-radius: 12px;
+  }
+  
+  /* ULASAN */
+  .Header-ulasan {
+    display: flex;
+    font-weight: bold;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 12px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-right: 40px;
+  }
+  .Add-review{
+    font-size: 20px;
+    color: blueviolet;
+  }
+  .ulasan-modern {
+    padding: 20px 30px;
+    background: #f7f7f7;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+  
+  .ulasan-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .urutkan select {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .ulasan-list {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .ulasan-card {
+    background: #e0e0e0;
+    padding: 20px;
+    border-radius: 20px;
+    width: 300px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    flex: none;
+  }
+  
+  .ulasan-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  
+  .stars {
+    color: gold;
+  }
+  
+  .ulasan-card p {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .ulasan-card img {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+  
+  
