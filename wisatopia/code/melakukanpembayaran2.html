@@ -19,7 +19,7 @@
         }
 
         .background {
-            background-image: url("background.jpeg");
+            background-image: url("../asset/background.jpeg");
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -195,7 +195,7 @@
     <div class="background">
         <nav class="navbar">
             <div class="logo">
-                <img src="logo.png" alt="Logo Wisatopia" class="logo-image">
+                <img src="../asset/logo.png" alt="Logo Wisatopia" class="logo-image">
                 Wisatopia
             </div>
             <ul class="nav-links">
@@ -221,7 +221,7 @@
             </div>
 
             <div class="bank-account-input">
-                <label for="nomorRekening">No. Rek/Virtual Account Anda:</label>
+                <label for="nomorRekening"></label>
                 <input type="text" id="nomorRekening" placeholder="Masukkan nomor rekening Anda">
             </div>
 
@@ -246,11 +246,12 @@
         const totalPembayaran = urlParams.total;
         const selectedBank = urlParams.bank;
 
-        // Menampilkan informasi pembayaran
+        // Tampilkan informasi
         document.getElementById('konfirmasiTotal').innerText = totalPembayaran ? totalPembayaran : 'Rp-';
         document.getElementById('konfirmasiBank').innerText = selectedBank ? getNamaBank(selectedBank) : '-';
+        document.getElementById('nomorRekening').value = selectedBank ? getNomorRekening(selectedBank) : '';
 
-        // Fungsi untuk mendapatkan nama bank berdasarkan value dari dropdown sebelumnya
+        // Fungsi untuk mendapatkan nama bank berdasarkan kode
         function getNamaBank(value) {
             switch (value) {
                 case 'bni':
@@ -274,20 +275,38 @@
             }
         }
 
-        // Event listener untuk tombol "Selesai"
-        const selesaiButton = document.querySelector('.finish-button');
-        selesaiButton.addEventListener('click', function () {
-            // Redirect ke halaman melakukanpembayaran3.html
+        // Fungsi untuk mendapatkan nomor rekening otomatis
+        function getNomorRekening(value) {
+            switch (value) {
+                case 'bni':
+                    return '1234567890 (BNI)';
+                case 'bri':
+                    return '9876543210 (BRI)';
+                case 'mandiri':
+                    return '1122334455 (Mandiri)';
+                case 'bca':
+                    return '5566778899 (BCA)';
+                case 'cimb_niaga':
+                    return '6677889900 (CIMB Niaga)';
+                case 'transfer_bank':
+                    return '0011223344 (Transfer Bank)';
+                case 'kartu_kredit':
+                    return '4433221100 (Kartu Kredit)';
+                case 'e_wallet':
+                    return '081234567890 (E-Wallet)';
+                default:
+                    return '';
+            }
+        }
+
+        // Tombol Selesai
+        document.querySelector('.finish-button').addEventListener('click', function () {
             window.location.href = 'melakukanpembayaran3.html';
         });
 
-        // Event listener untuk tombol "Batalkan Pesanan"
-        const batalkanPesananButton = document.getElementById('batalkanPesanan');
-        batalkanPesananButton.addEventListener('click', function () {
-            // Redirect ke halaman melakukanpembayaran4.html
+        // Tombol Batalkan Pesanan
+        document.getElementById('batalkanPesanan').addEventListener('click', function () {
             window.location.href = 'melakukanpembayaran4.html';
-            // Anda bisa menambahkan logika pembatalan pesanan di sini jika diperlukan
-            // Misalnya, mengirim permintaan ke server untuk membatalkan pesanan.
         });
     </script>
 </body>
