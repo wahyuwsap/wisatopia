@@ -109,41 +109,23 @@
             padding: 10px 20px;
             border-radius: 8px;
             margin-bottom: 15px;
-            text-align: left;
-            display: inline-block;
-            width: auto;
-        }
-
-        .bank-info-container div {
-            margin-bottom: 0;
-        }
-
-        .bank-info-container div:first-child {
-            font-weight: bold;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             font-size: 1.1rem;
+            font-weight: bold;
         }
 
-        .bank-account-input {
+        .rekening-display {
             background-color: white;
-            color: black;
-            padding: 20px;
+            color: green;
+            padding: 15px 20px;
             border-radius: 8px;
             margin-bottom: 20px;
-            text-align: left;
-        }
-
-        .bank-account-input label {
-            display: block;
-            margin-bottom: 5px;
+            font-size: 1.5rem;
             font-weight: bold;
-        }
-
-        .bank-account-input input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            color: black;
+            text-align: center;
         }
 
         .button-container {
@@ -152,27 +134,10 @@
             margin-top: 20px;
         }
 
-        .cancel-button {
-            padding: 10px 15px;
-            border: none;
-            color: white;
-            border-radius: 20px;
-            font-size: 16px;
-            cursor: pointer;
-            text-align: center;
-            background-color: #007bff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease;
-            flex-grow: 0;
-            width: auto;
-        }
-
-        .cancel-button:hover {
-            background-color: #0056b3;
-        }
-
+        .cancel-button,
         .finish-button {
-            padding: 10px 20px;
+            flex: 1;
+            padding: 10px;
             border: none;
             color: white;
             border-radius: 20px;
@@ -182,9 +147,9 @@
             background-color: #007bff;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
             transition: background-color 0.3s ease;
-            flex-grow: 1;
         }
 
+        .cancel-button:hover,
         .finish-button:hover {
             background-color: #0056b3;
         }
@@ -220,14 +185,12 @@
                 <div><span id="konfirmasiBank">-</span></div>
             </div>
 
-            <div class="bank-account-input">
-                <label for="nomorRekening"></label>
-                <input type="text" id="nomorRekening" placeholder="Masukkan nomor rekening Anda">
-            </div>
+            <!-- Nomor rekening ditampilkan di sini -->
+            <div class="rekening-display" id="nomorRekeningTampil">-</div>
 
             <div class="button-container">
-                <button class="custom-button cancel-button" id="batalkanPesanan">Batalkan Pesanan</button>
-                <button class="custom-button finish-button">Selesai</button>
+                <button class="cancel-button" id="batalkanPesanan">Batalkan Pesanan</button>
+                <button class="finish-button">Selesai</button>
             </div>
         </div>
     </div>
@@ -249,7 +212,7 @@
         // Tampilkan informasi
         document.getElementById('konfirmasiTotal').innerText = totalPembayaran ? totalPembayaran : 'Rp-';
         document.getElementById('konfirmasiBank').innerText = selectedBank ? getNamaBank(selectedBank) : '-';
-        document.getElementById('nomorRekening').value = selectedBank ? getNomorRekening(selectedBank) : '';
+        document.getElementById('nomorRekeningTampil').innerText = selectedBank ? getNomorRekening(selectedBank) : '-';
 
         // Fungsi untuk mendapatkan nama bank berdasarkan kode
         function getNamaBank(value) {
@@ -295,7 +258,7 @@
                 case 'e_wallet':
                     return '081234567890 (E-Wallet)';
                 default:
-                    return '';
+                    return '-';
             }
         }
 
