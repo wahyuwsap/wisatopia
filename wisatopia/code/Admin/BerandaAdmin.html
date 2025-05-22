@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Beranda - Wisatopia</title>
+  <link rel="stylesheet" href="../style/style.css">
+  <link rel="stylesheet" href="../style/menuGeser.css">
+  <link rel="stylesheet" href="../style/menuWisata.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">
+      <img src="../asset/logo.png" alt="logo">
+      <span><b>Selamat Datang Jessy</b></span>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark position-absolute w-100 custom-navbar">
+      <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Aktivitas</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Verifikasi</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Notifikasi</a></li>
+                <li class="nav-item"><a class="nav-link" href="#"><strong>Admin</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><img src="../asset/logoNotifikasi.png" alt="Notif" style="height: 24px;" /></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+  </header>
+
+  <section class="hero">
+    <div class="search-bar">
+      <input type="text" placeholder="Search destinations">
+      <button>Search</button>
+    </div>
+
+    <div class="categories">
+      <div class="category">
+        <img src="../asset/logoBeaches.png" alt="Beaches">
+        <span>Beaches</span>
+      </div>
+      <div class="category">
+        <img src="../asset/logoMountains.png" alt="Mountains">
+        <span>Mountains</span>
+      </div>
+      <div class="category">
+        <img src="../asset/logoHistorical.png" alt="Historical">
+        <span>Historical</span>
+      </div>
+      <div class="category">
+        <img src="../asset/logoLocation.png" alt="Location">
+        <span>Location</span>
+      </div>
+    </div>
+
+    <div class="gradient-overlay"></div>
+  </section>
+
+  <section class="container">
+    <h2 class="section-title">Top Vacation Destinations</h2>
+    <div class="carousel-wrapper">
+      <button class="arrow left" id="scroll-left">❮</button>
+      <div class="top-destinations" id="destinations">
+        <a href="TempatWisata/HalamanTanahLot.html">
+          <div class="destination-card">
+            <img src="../asset/Destinasi/TanahLot.png" alt="Tanah Lot">
+            <span class="destination-label">Tanah Lot</span>
+          </div>
+        </a>
+        <a href="TempatWisata/HalamanMandalika.html">
+          <div class="destination-card">
+            <img src="../asset/Destinasi/KutaMandalika.png" alt="Mandalika">
+            <span class="destination-label">Mandalika</span>
+          </div>
+        </a>
+        <a href="TempatWisata/HalamanBorobudur.html">
+          <div class="destination-card">
+            <img src="../asset/Destinasi/Borobudur.jpg" alt="Borobudur">
+            <span class="destination-label">Borobudur</span>
+          </div>
+        </a>
+        <div class="destination-card">
+          <img src="../asset/Destinasi/PantaiKarimun.jpeg" alt="Danau Toba">
+          <span class="destination-label">Danau Toba</span>
+        </div>
+        <div class="destination-card">
+          <img src="../asset/Destinasi/PantaiKarimun.jpeg" alt="Tanah Lot">
+          <span class="destination-label">Tanah Lot</span>
+        </div>
+        <div class="destination-card">
+          <img src="../asset/Destinasi/PantaiKarimun.jpeg" alt="Mandalika">
+          <span class="destination-label">Mandalika</span>
+        </div>
+        <div class="destination-card">
+          <img src="../asset/Destinasi/PantaiKarimun.jpeg" alt="Borobudur">
+          <span class="destination-label">Borobudur</span>
+        </div>
+        <div class="destination-card">
+          <img src="../asset/Destinasi/PantaiKarimun.jpeg" alt="Danau Toba">
+          <span class="destination-label">Danau Toba</span>
+        </div>
+      </div>
+      <button class="arrow right" id="scroll-right">❯</button>
+    </div>
+
+    <br><br><h2 class="section-title">Pilihan Favorit Wisatawan</h2>
+    <div class="favorite-list">
+        <div class="favorite-card">
+          <img src="../asset/Destinasi/PantaiKarimun.jpeg" alt="Nusa Penida">
+          <div class="text-content">
+            <h3>Tur Sehari Nusa Penida dari Bali</h3>
+            <p>Menawarkan petualangan singkat namun mengesankan dengan mengunjungi pantai-pantai ikonik, tebing spektakuler, dan kolam alami yang menakjubkan.</p>
+          </div>
+        </div>
+        <div class="favorite-card">
+          <img src="../asset/Destinasi/PantaiKarimun.jpeg" alt="Prambanan">
+          <div class="text-content">
+            <h3>Candi Prambanan</h3>
+            <p>Kompleks candi Hindu terbesar di Indonesia, terkenal dengan arsitektur megah dan relief-relief yang menceritakan kisah Ramayana.</p>
+          </div>
+        </div>
+        <div class="favorite-card">
+          <img src="../asset/Destinasi/PantaiKarimun.jpeg" alt="Waterboom Bali">
+          <div class="text-content">
+            <h3>Tiket Waterboom Bali</h3>
+            <p>Memberikan akses ke taman air terbaik di Asia dengan berbagai seluncuran seru, kolam renang, dan area santai yang cocok untuk semua usia.</p>
+          </div>
+        </div>
+        <div class="favorite-card">
+          <img src="../asset/Destinasi/PantaiKarimun.jpeg" alt="Pantai Parangtritis">
+          <div class="text-content">
+            <h3>Pantai Parangtritis</h3>
+            <p>Pantai ikonik di Yogyakarta yang terkenal dengan pasir hitamnya, ombak besar, dan mitos legenda Ratu Kidul.</p>
+          </div>
+        </div>
+        <div class="favorite-card">
+          <img src="../asset/Destinasi/PantaiKarimun.jpeg" alt="Taman Mini Indonesia Indah">
+          <div class="text-content">
+            <h3>Taman Mini Indonesia Indah</h3>
+            <p>Taman budaya di Jakarta yang menampilkan keberagaman suku, adat, dan arsitektur tradisional dari seluruh Indonesia dalam satu kawasan.</p>
+          </div>
+        </div>
+        <div class="favorite-card">
+          <img src="../asset/Destinasi/PantaiKarimun.jpeg" alt="Kepulauan Seribu">
+          <div class="text-content">
+            <h3>Kepulauan Seribu</h3>
+            <p>Gugusan pulau di utara Jakarta yang menawarkan keindahan pantai, keanekaragaman biota laut, dan ekowisata bahari yang menakjubkan.</p>
+          </div>
+        </div>
+      </div>
+  </section>
+  <script src="style/menuGeser.js"></script>
+
+  <footer>
+    <div>
+      Wisatopia
+    </div>
+    <div class="footer-links">
+      <a href="#">About Wisatopia</a>
+      <a href="#">Contact Us</a>
+      <a href="#">About US</a>
+      <a href="#">Help Centers</a>
+    </div>
+    <div class="social-icons">
+      <img src="../../asset/logoFacebook.png" alt="Facebook">
+      <img src="../../asset/logoInstagram.png" alt="Instagram">
+      <img src="../../asset/logoTwiter.png" alt="Twitter">
+      <img src="../../asset/logoYoutube.png" alt="YouTube">
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

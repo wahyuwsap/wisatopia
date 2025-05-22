@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Wisatopia</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    iframe {
+      width: 100vw;
+      height: 100vh;
+      border: none;
+    }
+
+    #music-control {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 9999;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<audio id="backsong" loop>
+  <source src="../../asset/Music/backsong.mp3" type="audio/mpeg">
+  Browser Anda tidak mendukung audio.
+</audio>
+
+<button id="music-control">▶️ Play Music</button>
+
+<iframe src="HalamanUtamaAdmin.html"></iframe>
+
+<script>
+  const audio = document.getElementById('backsong');
+  const button = document.getElementById('music-control');
+
+  let isPlaying = false;
+
+  button.addEventListener('click', function () {
+    if (isPlaying) {
+      audio.pause();
+      button.textContent = '▶️ Play Music';
+    } else {
+      audio.play();
+      button.textContent = '⏸️ Pause Music';
+    }
+    isPlaying = !isPlaying;
+  });
+
+  window.addEventListener('click', function () {
+    if (!isPlaying) {
+      audio.play().then(() => {
+        isPlaying = true;
+        button.textContent = '⏸️ Pause Music';
+      }).catch(() => {
+      });
+    }
+  }, { once: true });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wisatopia - Sign In</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: url('../../asset/background.jpeg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 90vh;
+        }
+
+        .form-card {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 400px;
+            color: white;
+        }
+
+        .form-card h2 {
+            margin-bottom: 25px;
+        }
+
+        .google-signin {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            background: white;
+            color: black;
+            padding: 8px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .google-signin img {
+            height: 20px;
+            margin-right: 8px;
+        }
+
+        .or-divider {
+            text-align: center;
+            margin: 20px 0;
+            color: #ddd;
+        }
+
+        .form-card input[type="email"], .form-card input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 20px;
+            border: none;
+            border-radius: 6px;
+        }
+
+        .form-card .password-wrapper {
+            position: relative;
+        }
+
+        .form-card .password-wrapper input {
+            padding-right: 40px;
+        }
+
+        .form-card .password-wrapper span {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: black;
+        }
+
+        .form-card button {
+            width: 100%;
+            padding: 12px;
+            background-color: #1a73e8;
+            border: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .form-card button:hover {
+            background-color: #0f5bd4;
+        }
+
+        .form-card .signup-link {
+            text-align: center;
+            margin-top: 15px;
+            color: #ccc;
+        }
+
+        .form-card .signup-link a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #1b1b1b;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            font-size: 14px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            border-right: 1px solid gray;
+            padding-right: 10px;
+        }
+
+        .footer-links a:last-child {
+            border-right: none;
+        }
+
+        .social-icons img {
+            width: 20px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header style="padding:20px 50px; display:flex; align-items:center;">
+    <img src="../../asset/logo.png" alt="Wisatopia Logo" style="height:40px; margin-right:10px;">
+    <span style="color:white;">Wisatopia</span>
+</header>
+
+<div class="container">
+    <div class="form-card">
+        <h2 style="text-align: center;">Admin</h2>
+
+            <form action="../../project/LoginAdmin.php" method="POST">
+                <label>Email address</label>
+                <input type="email" name="email" placeholder="Enter your email" required>
+
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Enter your password" required>
+
+                <button type="submit">Sign In</button>
+            </form>
+
+    </div>
+</div>
+
+<footer>
+    <div>
+        <img src="../asset/logo.png" alt="Wisatopia Logo" style="height:30px; vertical-align:middle;"> Wisatopia
+    </div>
+    <div class="footer-links">
+        <a href="#">About Wisatopia</a>
+        <a href="#">Contact Us</a>
+        <a href="#">About US</a>
+        <a href="#">Help Centers</a>
+    </div>
+    <div class="social-icons">
+        <img src="../asset/logoFacebook.png" alt="Facebook">
+        <img src="../asset/logoInstagram.png" alt="Instagram">
+        <img src="../asset/logoTwiter.png" alt="Twitter">
+        <img src="../asset/logoYoutube.png" alt="YouTube">
+    </div>
+</footer>
+
+</body>
+</html>

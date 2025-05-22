@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wisatopia - Dashboard Admin</title>
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/menuWisata.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <img src="../../asset/logo.png" alt="logo">
+            <span><b>Selamat Datang Jessy</b></span>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark position-absolute w-100 custom-navbar">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Aktivitas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Verifikasi</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Notifikasi</a></li>
+                        <li class="nav-item"><a class="nav-link" href="SignInAdmin.html"><strong>Admin</strong></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="admin-dashboard d-flex">
+        <aside class="sidebar">
+            <div class="logo text-center mt-3">
+                <img src="../../asset/logo.png" alt="Wisatopia Logo" style="height:60px;">
+                <h2 class="text-white mt-2">Wisatopia</h2>
+            </div>
+            <ul class="sidebar-menu mt-4">
+                <li><i class="fas fa-tachometer-alt"></i> Dashboard</li>
+                <li><i class="fas fa-bell"></i> Notifikasi</li>
+                <li><i class="fas fa-receipt"></i> Histori Bayar</li>
+                <li><i class="fas fa-check-circle"></i> Verifikasi</li>
+                <li class="active"><i class="fas fa-database"></i> Kelola Data</li>
+            </ul>
+        </aside>
+
+        <section class="content p-4 w-100">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h3>Kelola Data Wisata</h3>
+                <button class="btn btn-primary">+ Tambah Data</button>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover align-middle text-center">
+                    <thead class="table-light">
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Wisata</th>
+                            <th>Lokasi</th>
+                            <th>Harga</th>
+                            <th>Kategori</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Pantai Pink</td>
+                            <td>Lombok</td>
+                            <td>Rp 20.000</td>
+                            <td>Pantai</td>
+                            <td>
+                                <button class="btn btn-warning btn-sm">Edit</button>
+                                <button class="btn btn-danger btn-sm">Hapus</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Gunung Bromo</td>
+                            <td>Jawa Timur</td>
+                            <td>Rp 35.000</td>
+                            <td>Gunung</td>
+                            <td>
+                                <button class="btn btn-warning btn-sm">Edit</button>
+                                <button class="btn btn-danger btn-sm">Hapus</button>
+                            </td>
+                        </tr>
+                        <!-- Tambahkan baris lainnya sesuai kebutuhan -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="p-3 bg-light mt-auto">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <div><b>Wisatopia</b></div>
+            <div class="footer-links">
+                <a href="#" class="me-3">About Wisatopia</a>
+                <a href="#" class="me-3">Contact Us</a>
+                <a href="#" class="me-3">About Us</a>
+                <a href="#">Help Centers</a>
+            </div>
+            <div class="social-icons mt-2 mt-md-0">
+                <img src="../../asset/logoFacebook.png" alt="Facebook" style="height:24px;" class="me-2">
+                <img src="../../asset/logoInstagram.png" alt="Instagram" style="height:24px;" class="me-2">
+                <img src="../../asset/logoTwiter.png" alt="Twitter" style="height:24px;" class="me-2">
+                <img src="../../asset/logoYoutube.png" alt="YouTube" style="height:24px;">
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
