@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Verifikasi Ulasan - Wisatopia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+        }
+
+        /* Header menggantikan topbar, styling dibuat mirip agar tampilan tetap sama */
+        header.header {
+            height: 60px;
+            width: 100%;
+            background-image: url('../asset/background.jpeg');
+            background-size: cover;
+            background-position: top;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+
+        header.header .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        header.header .logo img {
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        header.header .logo span {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        /* Navbar dari header */
+        nav.navbar {
+            display: flex;
+            align-items: center;
+        }
+
+        nav.navbar .container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        nav.navbar ul.navbar-nav {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav.navbar ul.navbar-nav li.nav-item a.nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            padding: 5px 8px;
+        }
+
+        nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
+            color: white;
+        }
+
+        nav.navbar ul.navbar-nav li.nav-item a.nav-link strong {
+            font-weight: bolder;
+        }
+
+        nav.navbar button.navbar-toggler {
+            display: none;
+        }
+
+        /* Container dan sidebar */
+        .container {
+            display: flex;
+            height: calc(100vh - 60px);
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #1e1e1e;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+        }
+
+        .sidebar img.logo {
+            width: 100px;
+            border-radius: 50%;
+        }
+
+        .sidebar h2 {
+            margin: 10px 0;
+        }
+
+        .menu {
+            margin-top: 40px;
+            width: 100%;
+            text-align: left;
+            padding-left: 30px;
+        }
+
+        /* Styling menu item agar ada icon */
+        .menu a {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px 0;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        /* Icon ukuran */
+        .menu a img.icon {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+            /* agar icon PNG hitam jadi putih */
+        }
+
+        .menu a.active,
+        .menu a:hover {
+            color: white;
+        }
+
+        .main {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        .tabs {
+            margin-bottom: 20px;
+            display: flex;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #e0e0e0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: fit-content;
+        }
+
+        .tabs button {
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            background-color: transparent;
+            color: #333;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            flex-grow: 1;
+        }
+
+        .tabs .active {
+            background-color: #666;
+            color: white;
+        }
+
+        .review-box {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            padding-bottom: 60px;
+            margin: 0 auto;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .warning {
+            background-color: #f79ca4;
+            color: #d3051a;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 20px;
+            width: fit-content;
+            margin: 0 auto 20px auto;
+            /* agar tetap center tapi tidak penuh */
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .review-user {
+            display: flex;
+            align-items: center;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            background-color: #4682b4;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .hotel-info {
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        .review-content {
+            line-height: 1.5;
+            padding-top: 10px;
+            font-size: 18px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 300px;
+            margin-top: 100px;
+        }
+
+        .buttons button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.35);
+            /* Tambahkan bayangan */
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .accept {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .reject {
+            background-color: #dc3545;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header baru menggantikan topbar -->
+    <header class="header">
+        <div class="logo">
+            <img src="../asset/logo.png" alt="logo">
+            <span>Wisatopia</span>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark position-absolute w-100 custom-navbar">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Aktivitas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Verifikasi</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Notifikasi</a></li>
+                        <li class="nav-item"><a class="nav-link" href="SignInAdmin.html"><strong>Admin</strong></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <img src="../asset/logo.png" alt="Logo Wisatopia" class="logo">
+            <h2>Wisatopia</h2>
+            <div class="menu">
+                <a href="#">
+                    <img src="../asset/ikon/vector_1.png" alt="Icon Analisis" class="icon" />
+                    Analisis
+                </a>
+                <a href="#">
+                    <img src="../asset/ikon/vector_2.png" alt="Icon Dashboard" class="icon" />
+                    Dashboard
+                </a>
+                <a href="#">
+                    <img src="../asset/ikon/vector_3.png" alt="Icon Histori Bayar" class="icon" />
+                    Histori Bayar
+                </a>
+                <a href="#" class="active">
+                    <img src="../asset/ikon/vector_4.png" alt="Icon Verifikasi" class="icon" />
+                    Verifikasi
+                </a>
+                <a href="#">
+                    <img src="../asset/ikon/vector_5.png" alt="Icon Kelola Data" class="icon" />
+                    Kelola Data
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main">
+            <div class="tabs">
+                <button class="active">Pembayaran</button>
+                <button>Ulasan</button>
+            </div>
+
+            <div class="review-box">
+                <div class="warning">Ulasan Mengandung Unsur Sarah</div>
+
+                <div class="review-header">
+                    <div class="review-user">
+                        <div class="avatar"></div>
+                        <div>
+                            <strong>Xavier</strong><br>
+                            Total Review: 1
+                        </div>
+                    </div>
+                    <div class="hotel-info">
+                        <strong>Hotel Angkasa</strong> <br> Rating: ⭐<br>
+                        25 - 04 - 2025
+                    </div>
+                </div>
+
+                <div class="review-content">
+                    Tempat tolol ini Hotel Angkasa. Pelayanan sangat buruk, staf tidak ramah dan terkesan acuh.
+                    Kamar kotor, bau tidak sedap, dan fasilitas jauh dari ekspektasi...
+                </div>
+
+                <div class="buttons">
+                    <button class="accept">Terima</button>
+                    <button class="reject">Tolak</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabButtons = document.querySelectorAll('.tabs button');
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
